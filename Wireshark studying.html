@@ -1,0 +1,60 @@
+<h1>
+Wireshark Notes
+</h1>
+<br>
+<p>Table of Contents</p>
+<ol>
+<li>
+Protocols
+</li>
+<li>
+Commands
+</li>
+<li>
+Other
+</li>
+
+</ol>
+
+<h2>
+1. Protocols
+</h2>
+<ul>
+<li>Simple Service Discovery Protocol - SSDP</li>
+<p>a network protocol based on the Internet protocol suite for advertisement and discovery of network services and presence information.
+
+The example below is from my phone searching for castable devices. 
+</p>
+<a target="_blank" href="https://en.wikipedia.org/wiki/Simple_Service_Discovery_Protocol">Wiki </a>
+<a target="_blank" href="http://www.dial-multiscreen.org/">dial-multiscreen-org </a>
+<img src="ssdp_example.jpg">
+
+<li>
+
+Multicast DNS - MDNS
+</li>
+<p> multicast DNS (mDNS) protocol resolves hostnames to IP addresses within small networks that do not include a local name server. </p>
+<a target="_blank" href="https://en.wikipedia.org/wiki/Multicast_DNS">wiki </a>
+
+<li>
+ DNS - Refresher </li>
+<p> DNS points to root name servers, bounces to TLD name servers, queries ANS NSO returns an ip address </p>
+<li>Dynamic Host Configuration Protocol - DHCP</li>
+<p> Static - Manually assigned ip address can also include subnet, default gateway, and dns 
+
+Dynamic - Automatically assigns ip addresses, subnet mask, default gateway and dns.
+
+Brodcasts a request so will appear on wireshark
+
+</p>
+</ul>
+
+<h2>2. Commands</h2>
+<ul>
+<li> tcp.analysis.lost_segment </li>
+<p>Indicates we’ve seen a gap in sequence numbers in the capture. Packet loss can lead to duplicate ACKs, which leads to retransmissions.<a target="_blank" href="https://www.researchgate.net/post/how_can_I_see_or_analyze_packet_loss_value_in_wireshark">source</a></p>
+<li> tcp.analysis.retransmission </li>
+<p>Displays all retransmissions in the capture. A few retransmissions are OK, excessive retransmissions are bad. This usually shows up as slow application performance and/or packet loss to the user.<a target="_blank" href="https://www.researchgate.net/post/how_can_I_see_or_analyze_packet_loss_value_in_wireshark">source</a></p>
+<li>ip.addr == xxx.xxx.xxx.xxx</li>
+<p>Filter for specific ip address</p>
+</ul>
